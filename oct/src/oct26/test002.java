@@ -27,7 +27,9 @@ public class test002 {
 		}
 		
 		
+		System.out.println();System.out.println();
 
+		
 
 //		for(int Lv=1; Lv<=4; Lv++) {
 //			if(Lv==1) {
@@ -82,13 +84,14 @@ public class test002 {
 		End:
 		for(int Lv=1; Lv<=4; Lv++) {
 			if(Lv==1) {
+				System.out.println("현재 Lv" + Lv);
 				for(int i=1; i<=5; i++) {
 					int x = (int)(Math.random()*9+1);
 					int y = (int)(Math.random()*9+1);
 					System.out.print(x + " + " + y + " = ");
 					int z = Integer.parseInt(sc.nextLine());
 					if( (x+y) == z) {
-						System.out.println("정답 " + i + "/5");
+						System.out.println("정답 " + i + "/5\n");
 							if(i==5) 
 								System.out.println("다음단계로");
 					}else {
@@ -97,6 +100,7 @@ public class test002 {
 					}
 				}
 			}else if(Lv==2) {
+				System.out.println("현재 Lv" + Lv);
 				for(int i=1; i<=5; i++) {
 					int x = (int)(Math.random()*9+1);
 					int y = (int)(Math.random()*9+1);
@@ -112,6 +116,7 @@ public class test002 {
 					}
 				}
 			}else if(Lv==3) {
+				System.out.println("현재 Lv" + Lv);
 				for(int i=1; i<=5; i++) {
 					int x = (int)(Math.random()*9+1);
 					int y = (int)(Math.random()*9+1);
@@ -127,6 +132,7 @@ public class test002 {
 					}
 				}
 			}else if(Lv==4) {
+				System.out.println("현재 Lv" + Lv);
 				for(int i=1; i<=5; i++) {
 					int x = (int)(Math.random()*9+1);
 					int y = (int)(Math.random()*9+1);
@@ -149,5 +155,6 @@ public class test002 {
 		System.out.println();
 		
 		
-	}}
+	}
+}
 

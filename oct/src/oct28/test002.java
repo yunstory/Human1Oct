@@ -3,7 +3,6 @@ package oct28;
 
 import java.util.Scanner;
 
-import org.omg.CORBA.SystemException;
 
 public class test002 {
 
@@ -156,6 +155,27 @@ public class test002 {
 		//3.배열 크기를 입력받아 배열 크기 만큼 1,2,3,1,2,3,1,2,3 … 
 		//숫자를 순서대로 배열안에 넣은다음 배열의 내용을 출력해 보자.
 		
+//		int[] size = new int[10];
+//		for(int i=0; i<size.length; i++) {
+//			size[i] += i+1;
+//			
+//		}
+		
+		int i=0 , j=0;
+		int[] size = new int[10];
+		
+		for( j=0; j<size.length; j++) {
+				System.out.println("size[" + j + "]=" + size[j]);			
+		}
+		
+		for( j=0; j<size.length; j++) {
+			for(i=1; i<=3; i++) {
+				System.out.println(i);
+			}
+		}
+		
+		
+		
 		
 //		int[] a= new int[10];
 //		
@@ -164,6 +184,11 @@ public class test002 {
 //		}
 
 
+		
+		//4.배열에 들어있는 내용을 정순과 역순으로 저장하는 새로운 배열을 만들어 출력해 보자.
+		
+		
+		
 		//5.배열 1,2,3,4,5,6,7,8,9 에서 이동방향, 이동칸수, 채울수자를 
 		//입력 받아 배열의 내용을 변경후 출력해보자.
 		 

@@ -13,7 +13,7 @@ public class test002 {
 			if(i/10==3||i/10==6||i/10==9) {
 				System.out.println("¦¦");
 			}else if(i%10==3||i%10==6||i%10==9) {
-				System.out.println("¦s");
+				System.out.println("¦");
 			}else {
 			System.out.println(i);
 			}

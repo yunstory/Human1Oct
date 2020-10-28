@@ -1,6 +1,7 @@
 package oct28;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -136,9 +137,9 @@ public class test002 {
 		//해당 문자가 몇번째 인덱스에 들어 있는지 출력하는 프로그램을 만들어 보자.
 		
 		
-//		String[] str = {"문자열", "비교는", "equals", "너떄문에", "시간낭비"};
+//		String[] str = {"정말", "하기가", "귀찮다", "컴알못은", "광광웁니다"};
 //		
-//		System.out.println("\"문자열/비교는/equlas/너때문에/시간낭비\" 택1");
+//		System.out.println("\"정말/하기가/귀찮다/컴알못은/광광웁니다\" 택1");
 //		String findStr = sc.nextLine();
 //		
 //		for(int i=0; i<str.length; i++) {
@@ -154,44 +155,100 @@ public class test002 {
 		
 		//3.배열 크기를 입력받아 배열 크기 만큼 1,2,3,1,2,3,1,2,3 … 
 		//숫자를 순서대로 배열안에 넣은다음 배열의 내용을 출력해 보자.
-		
-//		int[] size = new int[10];
-//		for(int i=0; i<size.length; i++) {
-//			size[i] += i+1;
-//			
-//		}
-		
-		int i=0 , j=0;
-		int[] size = new int[10];
-		
-		for( j=0; j<size.length; j++) {
-				System.out.println("size[" + j + "]=" + size[j]);			
-		}
-		
-		for( j=0; j<size.length; j++) {
-			for(i=1; i<=3; i++) {
-				System.out.println(i);
-			}
-		}
-		
-		
-		
-		
-//		int[] a= new int[10];
+			
+//		System.out.print("숫자입력");
+//		int i = Integer.parseInt(sc.nextLine());
 //		
-//		for(int i=0; i<a.length; i++) {
-//			System.out.println("a[" + i + "]=" + a[i]);
+//		int[] num = new int[i];
+//		
+//		for(int j=0; j<i; j++) {
+//			num[j] = j%3+1;
+//			System.out.println("numj[" + j + "]=" + num[j]);
 //		}
+		
+		
 
 
 		
 		//4.배열에 들어있는 내용을 정순과 역순으로 저장하는 새로운 배열을 만들어 출력해 보자.
 		
+		//4-1
+//		System.out.print("숫자입력");
+//		int i = Integer.parseInt(sc.nextLine());
+//		int[] num = new int[i];
+//		int count = 0;
+//		
+//		for(int j=0; j<i; j++) {
+//			num[j] = ++count;
+//			System.out.print(num[j] + "\t");
+//			}
+//		for(int j=i-1; j>=0; j--) {
+//			System.out.print(num[j] + "\t");
+//		}
+		
+		//4-2
+//		int i;
+//		System.out.println("숫자입력");
+//		int numNum = sc.nextInt();
+//		int[] num = new int[numNum];
+//		for(i=0; i<num.length; i++) {
+//			int num2 = (int)(Math.random()*99+1);
+//			num[i] = num2;
+//		}
+//
+//		for(i=num.length-1; i>=0; i--) {
+//			System.out.print(num[i] + "\t");
+//		}
+//		for(i=0; i<num.length; i++) {
+//				System.out.print(num[i]+"\t");
+//		}
 		
 		
+		
+		
+		
+		//---괴상하게 풀림 다시 풀것 ---
 		//5.배열 1,2,3,4,5,6,7,8,9 에서 이동방향, 이동칸수, 채울수자를 
 		//입력 받아 배열의 내용을 변경후 출력해보자.
+		 System.out.print("왼쪽 or 오른쪽 : ");
+		 String move = sc.next();
+		 System.out.print("이동칸수 : ");
+		 int moveCount = sc.nextInt();
+		 System.out.print("빈 공간을 채워 넣을 숫자 : ");
+		 int num = sc.nextInt(); 
+		 int[] num2 = new int[num];
+		 int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		 int i;
+//		 
+//		 
+//		 
+//		if(move.equals("왼쪽")) {
+//			
+//			for(i=0; i<arr.length; i++) {
+//				if(i<moveCount) {
+//					System.out.println("arr["+(arr.length-i)+"]="+(arr[i]=num));
+//				}else {
+//					System.out.println("arr["+(i-moveCount)+"]="+arr[i]);
+//				}
+//			}
+//		}else {
+//			for(i=0; i<arr.length; i++) {
+//				if(i<moveCount) {
+//					arr[i] = num;
+//					System.out.println("arr["+i+"]="+arr[i]);
+//				}else {
+//					System.out.println("arr["+i+"]="+(arr[i]-moveCount));
+//				}
+//			}
+//			
+//		}
+		
+
 		 
+		
+
+		
+
 		
 		
 

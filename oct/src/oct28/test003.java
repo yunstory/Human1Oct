@@ -8,28 +8,37 @@ import java.util.Scanner;
 public class test003 {
 		
 
-
-		  public static void main(String[] args) { 
-		    Scanner scanner = new Scanner(System.in); 
-		    System.out.println("정수 입력"); 
-		    int x = scanner.nextInt(); 
-
-		    //	배열 출력횟수 입력추가
-		    System.out.println("배열 출력횟수는?");
-		    int cnt = scanner.nextInt();
-
-		    //	배열 만드는 부분
-		    int array_a [] = new int[x*cnt]; 
-		    int k = 0;
-		    for(int j = 0; j < cnt ; j++) 	//	배열 출력횟수만큼 추가반복
-		    for (int i = 1; i <= x; i++) // 값 넣기 편하도록 해당 기능 일부 수정
-		    { 
-		      array_a [k++] = i;  // 여기도 맞춰서 수정
-		   } 
-
-		   //	출력하는 부분
-		   System.out.println(Arrays.toString(array_a)); 
+	public static void main(String[] args) {
+	
+		Scanner sc = new Scanner(System.in);
 		
+		
+		int e[]= {1,2,3,4,5,6,7,8,9};
+		System.out.print("이동방향>> 1.왼쪽  2.오른쪽  ");
+		int e1=sc.nextInt();
+		System.out.print("이동칸수>> ");
+		int e2=sc.nextInt();
+		System.out.print("빈 공간에 넣을 숫자>> ");
+		int e3=sc.nextInt();
+		int[] ee=new int[e.length];
+		if(e1==1) {
+			for(int i=0;i<e.length;i++) {
+				if(i<e.length-e2) {
+					ee[i]=e[i+e2];
+				}else {
+					ee[i]=e3;
+				}
+			}
+		}else {
+			for(int i=0;i<e.length;i++) {
+				if(i<e2) {
+					ee[i]=e3;
+				}else {
+					ee[i]=e[i-e2];
+				}
+			}
+		}
+		System.out.println(Arrays.toString(ee));
 
 	}
 

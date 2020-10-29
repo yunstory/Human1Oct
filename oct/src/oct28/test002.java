@@ -4,7 +4,6 @@ package oct28;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class test002 {
 
 	public static void main(String[] args) {
@@ -26,6 +25,10 @@ public class test002 {
 		
 		
 		
+		
+		
+		
+		
 		//문제 2) 배열 a[10]에 3의 배수를 넣은 다음에 배열의 내용을 출력하는 순서도와 의사코드를 만들어 보자.
 
 //		int[] a = new int[10];
@@ -35,6 +38,14 @@ public class test002 {
 //			System.out.println("a[" + i + "]=" + a[i]);
 //			
 //		}
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		//문제 3) 배열 a[100]에 1부터 100까지의 숫자를 순서대로 넣은 다음 배열의 인덱스가 
 		//짝수인 배열에 들어 있는 값만 출력하는 코드를 만들어 보자.
@@ -58,6 +69,10 @@ public class test002 {
 		
 		
 		
+		
+		
+		
+		
 		//문제 4) 배열 a[]={12,1,5,3,6,8,5,3}를 만든 다음에 
 		//	         배열의 모든 내용을 더한 값을 sum에 저장하여 출력하는 코드를 만들어 보자.
 			
@@ -67,6 +82,43 @@ public class test002 {
 //			sum += a[i];
 //		}
 //		System.out.println("총합: " + sum);
+		
+//		//쌤풀이 - 나랑 똑같다 호호잇
+//		int[] a = {12, 1, 5, 6, 6, 8, 5, 3};
+//		int sum = 0;
+//		for(int i=0; i<a.length; i++) {
+//			sum += a[i];
+//		}
+//		System.out.println(sum);
+//		//for(하나의 데이터 : [배열이나 컬렉션])
+//		sum = 0; 
+//		for(int i:a) { // a에 있는 내용이 i에 하나씩 복사되면서 반복됨  (only읽기모드)
+//			sum += i;
+//		}
+//		System.out.println(sum);
+//		
+//		//읽기모드
+//		for(int i:a) {
+//			i=0;
+//		}
+//		System.out.println(Arrays.toString(a));
+//		
+//		//객체의경우
+//		Human aH[]= {
+//				new Human("홍",1,1),
+//				new Human("홍",12,12),
+//				new Human("홍",13,13),;
+//		}
+//		
+//		for(Human h:aH) {
+//			h.age=100; // 실제 데이터가 변경됨
+//			h = new Human("홍1",99,99);//실제 데이터가 변경되지 않음
+//		}
+//		System.out.println(Arrays.toString(aH));
+		
+		
+		
+		
 		
 		
 		
@@ -83,6 +135,10 @@ public class test002 {
 //			}
 //		}
 //		System.out.println("짝수의 총합: " + sum);
+		
+		
+		
+		
 		
 		
 		
@@ -207,67 +263,103 @@ public class test002 {
 		
 		
 		
-		//---괴상하게 풀림 다시 풀것 ---
+
 		//5.배열 1,2,3,4,5,6,7,8,9 에서 이동방향, 이동칸수, 채울수자를 
 		//입력 받아 배열의 내용을 변경후 출력해보자.
-		 System.out.print("왼쪽 or 오른쪽 : ");
-		 String move = sc.next();
-		 System.out.print("이동칸수 : ");
-		 int moveCount = sc.nextInt();
-		 System.out.print("빈 공간을 채워 넣을 숫자 : ");
-		 int num = sc.nextInt(); 
-		 int[] num2 = new int[num];
-		 int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-		 int i;
+//		 System.out.print("왼쪽 or 오른쪽 : ");
+//		 String move = sc.next();
+//		 System.out.print("이동칸수 : ");
+//		 int moveCount = sc.nextInt();
+//		 System.out.print("빈 공간을 채워 넣을 숫자 : ");
+//		 int num = sc.nextInt(); 
+//		 int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+//		 int[] arrArr = new int[arr.length];
+//		 int i;
 //		 
-//		 
-//		 
-//		if(move.equals("왼쪽")) {
-//			
-//			for(i=0; i<arr.length; i++) {
-//				if(i<moveCount) {
-//					System.out.println("arr["+(arr.length-i)+"]="+(arr[i]=num));
-//				}else {
-//					System.out.println("arr["+(i-moveCount)+"]="+arr[i]);
-//				}
-//			}
-//		}else {
-//			for(i=0; i<arr.length; i++) {
-//				if(i<moveCount) {
-//					arr[i] = num;
-//					System.out.println("arr["+i+"]="+arr[i]);
-//				}else {
-//					System.out.println("arr["+i+"]="+(arr[i]-moveCount));
-//				}
-//			}
-//			
-//		}
-		
+//		 if(move.equals("왼쪽")) {
+//			 for(i=0; i<arr.length; i++) {
+//				 if(i<arr.length-moveCount) {
+//					 arrArr[i] = arr[i+moveCount];
+//				 }else {
+//					 arrArr[i] = num;
+//				 }
+//			 }
+//		 }else if(move.equals("오른쪽")){
+//			 for(i=0; i<arr.length; i++) {
+//				 if(i<moveCount) {
+//					 arrArr[i] = num;
+//				 }else {
+//					 arrArr[i] = arr[i-moveCount];
+//				 }
+//			 }
+//		 }else {
+//			 System.out.println("입력오류");
+//		 }
+//		 System.out.println(Arrays.toString(arrArr));
+	 
+ 
 
-		 
-		
 
+	
 		
 
 		
+
+		
 		
 
-		//6.배열 1,2,3,4,5,6,7,8,9 에서 회전방향과 
-		//회수를 입력받아 배열 내용을 회전시키고 출력해보자.
-		 
+//		//6.배열 1,2,3,4,5,6,7,8,9 에서 회전방향과 
+//		//회수를 입력받아 배열 내용을 회전시키고 출력해보자.
+//		//ex)왼2 = 3,4,5,6,7,8,9,1,2 / 오3 = 7,8,9,1,2,3,4,5,6
+		
+		//쌤풀이
+//		int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+//		String direction = "";
+//		int moveCount = 0;
+//		int changeNum = 0;
+//		
+//		moveFunc(a, direction,moveCount,changeNum);
+//	
+//		System.out.println(Arrays.toString(a));
+//}
+//
+//	private static void moveFunc(int[] a, String direction, int moveCount, int changeNum) {
+//		 for(int j=0; j<moveCount;j++) {
+//		 int temp = a[a.length-1];
+//		 if(changeNum>=0) {
+//			 temp = changeNum;
+//		 }
+//		 for(int i=a.length-2; i>=0;i--) {
+//			 a[i+1]=a[i];
+//		 }
+//		 a[0]=temp;
+//	 }
+		
+		
 
 		
 		
 		//7.배열을 100개 선언하여 0~99까지 넣은 다음 i=2 부터 50까지
 		//i를 제외한 i의 배수와 같은 인덱스에 0를 넣은 다음 배열에 0이 아닌 수를 출력해 보자. 
 		
-//		int[] a = new int[100];
-//		int count = 0;
-//		
-//		for(int i=0; i<a.length; i++) {
-//			a[i] =count++;
-//			System.out.println("a[" + i + "]=" + a[i]);
+		//쌤풀이
+//		int arr[] = new int[100];
+//		for(int k=0; k<100; k++) {
+//			arr[k] = k;
 //		}
+//		
+////		int i=3;
+//		for(int i=2; i<50; i++) {
+//			for(int j=i+i; j<=99; j += i) {
+//				arr[j]=0;
+//			}
+//		}
+//		for(int i:arr) {
+//			if(i != 0) {
+//				System.out.println(i);
+//			}
+//		}
+//		//System.out.println(Arrays.toString(arr));
 		
 		
 		
@@ -317,7 +409,16 @@ public class test002 {
 //					  		+ " \n주사위 6 : " + six + " 회 확률 : "+(six%diceCount)+ "%");
 		
 		
-		
+		//쌤풀이
+//		int arr[] = {0, 0, 0, 0, 0, 0};
+//		
+//		for(int i=0; i<2000; i++) {
+//			int rNum = (int)(Math.random()*6);
+//			arr[rNum]++;
+//		}
+//		System.out.println(Arrays.toString(arr));
+//		
+//		//알파벳 빈도수 'a'-'a'==0 'b'-'a'=1 
 		
 		
 		
@@ -375,10 +476,10 @@ public class test002 {
 //		}
 //		
 //		System.out.println("결석자 : " + absence + " 출석자 : " + attendance + " 조퇴자 : " + early + " 지각자 : " + late);
-		
-		
-		
-		
+//		
+//		
+//		
+//		
 	}
 
 }

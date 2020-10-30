@@ -14,10 +14,10 @@ public class test003 {
 		
 		
 		
-		id[0] = "홍길동";
-		pw[0] = "1234";
+		id[0] = null;
+		pw[0] = null;
 		account[0] = 0;
-		int listCount = 1;
+		int listCount = 0;
 		
 		String inputID = null;
 		String inputPW = null;
@@ -30,9 +30,12 @@ public class test003 {
 			
 			//아이디 하나, 패스워드 하나 입력하는 과정
 			System.out.println("아이디와 패스워드를 입력해주세요");
-			System.out.println("아이디 : ");
+			System.out.print("아이디 : ");
 			inputID = sc.nextLine();
-			System.out.println("패스워드 : ");
+			if(inputID.equals("exit")) { //exit를 입력하면 빠져나가는 과정
+				break;
+			}
+			System.out.print("패스워드 : ");
 			inputPW = sc.nextLine();
 			
 			
@@ -52,16 +55,16 @@ public class test003 {
 										+ "4.id로 특정 사용자 정보 확인 5.종료");
 					
 					
-					System.out.println("메뉴 선택");
+					System.out.print("메뉴 선택 : ");
 					int selectNum = Integer.parseInt(sc.nextLine());
 					
 					switch(selectNum) {
 					case 1:
 						System.out.println(" 계정 추가 ");
 						
-						System.out.println("아이디 입력 : ");
+						System.out.print("아이디 입력 : ");
 						id[listCount] = sc.nextLine();
-						System.out.println("패스워드 입력 : ");
+						System.out.print("패스워드 입력 : ");
 						pw[listCount] = sc.nextLine();
 						account[listCount] = 0;
 						
@@ -72,7 +75,7 @@ public class test003 {
 					case 2:
 						System.out.println(" 계정 삭제 ");
 						
-						System.out.println("아이디 입력 : ");
+						System.out.print("아이디 입력 : ");
 						String deleteID = sc.nextLine();
 						
 						int findIndex = -1;
@@ -100,13 +103,12 @@ public class test003 {
 						break;
 					case 3:
 						
-						System.out.println("모든 사용자 정보 조회 : ");
+						System.out.println("모든 사용자 정보 조회 ");
 						
 						for(int i=0; i<listCount; i++) {
-							System.out.println("---------------------" + i);
-							System.out.println("아이디 : " + id[i]);
-							System.out.println("패스워드  : " + pw[i]);
-							System.out.println("account : " + account[i]);
+							System.out.println("--------------------------------------------");
+							System.out.println("아이디 : " + id[i] + "\t패스워드  : " + pw[i] + "\taccount : " + account[i]);
+							System.out.println("--------------------------------------------");
 						}
 						if(listCount==0) {
 							System.out.println("데이터가 없습니다");
@@ -114,16 +116,16 @@ public class test003 {
 						break;
 					case 4:
 						System.out.println("찾을 계정을 입력해주세요");
-						System.out.println("아이디 : ");
+						System.out.print("아이디 : ");
 						String findID = sc.nextLine();
 						
 						boolean isFind = false;
 						
 						for(int i=0; i<listCount; i++) {
 							if(id[i].equals(findID)) {
-								System.out.println("아이디 : " + id[i]);
-								System.out.println("패스워드  : " + pw[i]);
-								System.out.println("account : " + account[i]);
+								System.out.print("아이디 : " + id[i]);
+								System.out.print("패스워드  : " + pw[i]);
+								System.out.print("account : " + account[i]);
 								isFind = true;
 							}
 						}
@@ -185,7 +187,7 @@ public class test003 {
 					
 					while(isLogin) { //작업반복
 					
-					System.out.println("1.입금 2.출금 3.확인 4.종료");
+					System.out.print("1.입금 2.출금 3.확인 4.종료 : ");
 					
 					int selectNum = Integer.parseInt(sc.nextLine());
 					

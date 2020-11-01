@@ -15,7 +15,7 @@ public class test003 {
 		
 		
 		id[0] = null;
-		pw[0] = null;
+
 		account[0] = 0;
 		int listCount = 0;
 		
@@ -41,7 +41,7 @@ public class test003 {
 			
 			if(inputID==null) { // 아이디의 값이 null인지 아닌지 확인 .을 찍게되면 에러 발생
 
-			}else if(inputID.equals("admin") && inputPW.equals("admin")) { //관리자 로그인
+			}else if(inputID.equals("admin") && inputPW.equals("1234")) { //관리자 로그인
 			
 				boolean isAdminLogin = true;
 				
@@ -215,9 +215,6 @@ public class test003 {
 					
 					
 					
-				}else {
-					//System.out.println("로그인실패");
-					inputID = null;
 				}
 				
 				// 그 아이디 (indexCount)는 몇번째에 존재하는지 확인하기

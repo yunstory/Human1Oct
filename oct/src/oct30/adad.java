@@ -11,12 +11,14 @@ public class test002 {
 		
 		Scanner sc = new Scanner(System.in);
 
-
 			
 		//최대 100명의 통장을 만들 수 있다.
 		String id[] = new String[100]; // 회원 아이디
 		int[] pw = new int[100]; // 회원 비밀번호 
 		int[] save = new int[100]; // 회원 통장
+		
+		String idID = null;
+		int pwPW = 0;
 		
 		int addList = 1; // 계정추가를 위해 필요한 코드 관리자는 0번 인덱스 고정 고로 1부터 시작
 		
@@ -29,12 +31,12 @@ public class test002 {
 		
 		while(yunsBank) {
 			System.out.print("\n아이디를 입력해주세요 : ");
-			String idID = sc.next();
+			idID = sc.next();
 			if(idID.equals("exit")) { // exit 입력시 프로그램은 종료된다.
 				break;
 			}
 			System.out.print("비밀번호를 입력해주세요 : ");
-			int pwPW = sc.nextInt();
+			pwPW = sc.nextInt();
 			
 		if(id[0].equals(idID) && pw[0] == pwPW) { 
 				//관리자 권한 실행 모드 
@@ -135,41 +137,51 @@ public class test002 {
 				}
 			}else {
 				
-				Esc:
+				boolean userArea = false;
+
 				for(int i=0; i<id.length; i++) {
-					
-					if(id[i]!=null && id[i].equals(idID) && pw[i] == pwPW  ) {
-						//아이디에 널 값이 들어가면 false
-						System.out.println("회원 " + idID + " 님이 로그인 하셨습니다.\n");
+					if(id[i]!=null && id[i].equals(idID) && pw[i] == pwPW) {
 						addList = i; //회원정보를 불러오는 코드 ( 관리자 계정생성 단계에서 확인 )
+						userArea = true;
+						break;
+					}
+				}
+
+				if(userArea) {
+					while(userArea) { // 회원이 로그아웃하기 전까지 반복구간 
 						
-						while(true) { // 회원이 로그아웃하기 전까지 반복구간 
-							
-							System.out.print("\n1.입금 2.출금 3.조회 0.종료(로그아웃)");
-							int sel = sc.nextInt();
-							
-							switch(sel) { //선택번호에 맞게 메뉴로 이동
-							
-							case 1:
-								System.out.print("입금할 금액 : ");
-								save[addList] += sc.nextInt(); // 저장된 회원의 통장save을 addList회원코드에 맞게 입금
-								break;
-							case 2:
-								System.out.print("출금할 금액 : ");
-								save[addList] -= sc.nextInt(); //  save회원의 통장 addList회원정보코드
-								break;
-							case 3:
-								System.out.print( idID + "님의 통장 잔액 :  " + save[addList] + " 원 \n");
-								break;
-							default:
-								System.out.print( idID +" 님이 로그아웃 하셨습니다.\n");
-								idID = null; // 정상 로그아웃 (아이디 저장안함 이랄까)
-								break Esc;
-							}
+						System.out.print("\n1.입금 2.출금 3.조회 0.종료(로그아웃)");
+						int sel = sc.nextInt();
+						
+						switch(sel) { //선택번호에 맞게 메뉴로 이동
+						
+						case 1:
+							System.out.print("입금할 금액 : ");
+							save[addList] += sc.nextInt(); // 저장된 회원의 통장save을 addList회원코드에 맞게 입금
+							break;
+						case 2:
+							System.out.print("출금할 금액 : ");
+							save[addList] -= sc.nextInt(); //  save회원의 통장 addList회원정보코드
+							break;
+						case 3:
+							System.out.print( idID + "님의 통장 잔액 :  " + save[addList] + " 원 \n");
+							break;
+						case 0:
+							System.out.print( idID +" 님이 로그아웃 하셨습니다.\n");
+							idID = null; // 정상 로그아웃 (아이디 저장안함 이랄까)
+							userArea = false;
+							break;
+						default:
+							System.out.println("입력오류");
+	
 						}
+						
 					}
 				}
 			}
+
 		}
+
+		
 	}
 }

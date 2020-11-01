@@ -1,31 +1,33 @@
 package oct29;
 
+import java.util.Arrays;
+
 public class javaTest001 {
 
 	public static void main(String[] args) {
 		
 		//Ω‹«Æ¿Ã
-//		int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-//		String direction = "";
-//		int moveCount = 0;
-//		int changeNum = 0;
-//		
-//		moveFunc(a, direction,moveCount,changeNum);
-//	
-//		System.out.println(Arrays.toString(a));
-//}
-//
-//	private static void moveFunc(int[] a, String direction, int moveCount, int changeNum) {
-//		 for(int j=0; j<moveCount;j++) {
-//		 int temp = a[a.length-1];
-//		 if(changeNum>=0) {
-//			 temp = changeNum;
-//		 }
-//		 for(int i=a.length-2; i>=0;i--) {
-//			 a[i+1]=a[i];
-//		 }
-//		 a[0]=temp;
-//	 }
+		int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		String direction = "";
+		int moveCount = 0;
+		int changeNum = 0;
+		
+		moveFunc(a, direction,moveCount,changeNum);
+	
+		System.out.println(Arrays.toString(a));
+    }
+
+	private static void moveFunc(int[] a, String direction, int moveCount, int changeNum) {
+		 for(int j=0; j<moveCount;j++) {
+		 int temp = a[a.length-1];
+		 if(changeNum>=0) {
+			 temp = changeNum;
+		 }
+		 for(int i=a.length-2; i>=0;i--) {
+			 a[i+1]=a[i];
+		 }
+		 a[0]=temp;
+	 }
 		 
 		//i=2 ~ 50Ω‹«Æ¿Ã
 		

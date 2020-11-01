@@ -83,7 +83,7 @@ public class test002 {
 //		}
 //		System.out.println("총합: " + sum);
 		
-//		//쌤풀이 - 나랑 똑같다 호호잇
+//		//쌤풀이 
 //		int[] a = {12, 1, 5, 6, 6, 8, 5, 3};
 //		int sum = 0;
 //		for(int i=0; i<a.length; i++) {
@@ -250,8 +250,9 @@ public class test002 {
 //		for(i=0; i<num.length; i++) {
 //			int num2 = (int)(Math.random()*99+1);
 //			num[i] = num2;
+//			System.out.print("랜덤 값 : " + num[i] + "\t");
 //		}
-//
+//		System.out.println();
 //		for(i=num.length-1; i>=0; i--) {
 //			System.out.print(num[i] + "\t");
 //		}
@@ -296,9 +297,32 @@ public class test002 {
 //			 System.out.println("입력오류");
 //		 }
 //		 System.out.println(Arrays.toString(arrArr));
-	 
- 
+		
 
+		
+ 
+//		//쌤풀이
+//		int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+//		String direction = "";
+//		int moveCount = 0;
+//		int changeNum = 0;
+//		
+//		moveFunc(a, direction,moveCount,changeNum);
+//	
+//		System.out.println(Arrays.toString(a));
+//	}
+//
+//	private static void moveFunc(int[] a, String direction, int moveCount, int changeNum) {
+//		 for(int j=0; j<moveCount;j++) {
+//		 int temp = a[a.length-1];
+//		 if(changeNum>=0) {
+//			 temp = changeNum;
+//		 }
+//		 for(int i=a.length-2; i>=0;i--) {
+//			 a[i+1]=a[i];
+//		 }
+//		 a[0]=temp;
+//	 }
 
 	
 		
@@ -311,6 +335,38 @@ public class test002 {
 //		//6.배열 1,2,3,4,5,6,7,8,9 에서 회전방향과 
 //		//회수를 입력받아 배열 내용을 회전시키고 출력해보자.
 //		//ex)왼2 = 3,4,5,6,7,8,9,1,2 / 오3 = 7,8,9,1,2,3,4,5,6
+		
+//		int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+//		int[] arrArr = new int[arr.length];
+//		
+//		System.out.println("숫자입력");
+//		int num = sc.nextInt();
+//		System.out.println("왼쪽 or 오른쪽");
+//		String str = sc.next();
+//		int count = 0;
+//		
+//		
+//		if(str.equals("왼쪽")) {
+//			for(int j=0; j<arr.length-num; j++) {
+//				arr[j] = arr[j+num];
+//			}
+//			for(int j=arr.length-num; j<arr.length; j++) {
+//				arr[j] = ++count;
+//			}
+//			System.out.println(Arrays.toString(arr));
+//		}else {
+//				
+//			for(int j=0; j<num; j++) {
+//				arr[j] = arr[arr.length-num+j];
+//			}
+//			for(int j=num; j<arr.length; j++) {
+//				arr[j] = ++count;
+//			}
+//			System.out.println(Arrays.toString(arr));
+//		}
+			
+		
+		
 		
 		//쌤풀이
 //		int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
@@ -342,7 +398,27 @@ public class test002 {
 		//7.배열을 100개 선언하여 0~99까지 넣은 다음 i=2 부터 50까지
 		//i를 제외한 i의 배수와 같은 인덱스에 0를 넣은 다음 배열에 0이 아닌 수를 출력해 보자. 
 		
-		//쌤풀이
+//		int[] arr = new int[100];
+//		
+//		for(int j=0; j<arr.length; j++) {
+//			arr[j] = j;
+//		}
+//		
+//		for(int i=2; i<50; i++) {
+//			if((i+i)%2==0) 
+//				arr[i+i] = 0;
+//		}
+//		
+//		for(int i:arr) {
+//			if(i != 0) {
+//				System.out.print(i+",");
+//			}
+//		}
+//
+//		System.out.println(Arrays.toString(arr));
+		
+		
+//		//쌤풀이
 //		int arr[] = new int[100];
 //		for(int k=0; k<100; k++) {
 //			arr[k] = k;
@@ -354,12 +430,12 @@ public class test002 {
 //				arr[j]=0;
 //			}
 //		}
-//		for(int i:arr) {
-//			if(i != 0) {
-//				System.out.println(i);
-//			}
-//		}
-//		//System.out.println(Arrays.toString(arr));
+////		for(int i:arr) {
+////			if(i != 0) {
+////				System.out.print(i+"\t");
+////			}
+////		}
+//		System.out.println(Arrays.toString(arr));
 		
 		
 		
@@ -429,17 +505,50 @@ public class test002 {
 		//9.50명의 학생의 출석 사항을  저장하는 아래와 같은 메뉴를 가진 프로그램을 만들어 보자. 
 		//메뉴: 1.전체 출석사항 2.결석자 추가 3.출석자 추가 4.조퇴자 추가 5.지각자 추가 6.프로그램 종료
 		
+		int[] check = new int[50];
+		int[] student = {0, 0, 0, 0};
+		int sum = 0;
 		
+		End:
+		for(int i=0; i<check.length; i++) {
+			System.out.println("\n1.전체 출석사항 2.결석자 추가 3.출석자 추가 4.조퇴자 추가 5.지각자 추가 6.프로그램 종료");
+			int select = sc.nextInt();
+			
+			switch(select) {
+			case 1:
+				System.out.println("전체 출석 사항 : " + sum + "명 중 \n"
+						+ "결석자 : "+ student[0] + "명 /출석 : " + student[1] + "명 /조퇴 : " + student[2] + "명 /지각 : " + student[3] + "명");
+				break;
+			case 2:
+				student[0] ++;
+				sum++;
+				break;
+			case 3:
+				student[1] ++;
+				sum++;
+				break;
+			case 4:
+				student[2] ++;
+				sum++;
+				break;
+			case 5:
+				student[3] ++;
+				sum++;
+				break;
+			default:
+				break End;
+				
+			}
+			System.out.println("전체 출석 사항 : " + sum + "명 중 \n"
+					+ "결석자 : "+ student[0] + "명 /출석 : " + student[1] + "명 /조퇴 : " + student[2] + "명 /지각 : " + student[3] + "명");
 
-//		int absence = 0;
-//		int attendance = 0;
-//		int early = 0;
-//		int late = 0;
-//		int i=10;
-//		int student = 0;
-//		
+			
+		}
+
+		
+		
 //		End:
-//		while(i != 7) {
+//		while(true) {
 //			System.out.println("1.전체 출석사항 2.결석자 추가 3.출석자 추가 4.조퇴자 추가 5.지각자 추가 6.프로그램 종료");
 //			int select = sc.nextInt();
 //		
@@ -477,9 +586,9 @@ public class test002 {
 //		
 //		System.out.println("결석자 : " + absence + " 출석자 : " + attendance + " 조퇴자 : " + early + " 지각자 : " + late);
 //		
-//		
-//		
-//		
+		
+		
+		
 	}
 
 }

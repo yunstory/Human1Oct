@@ -14,7 +14,9 @@ public class javaTest002 {
 		while(true) {
 			
 				System.out.println("아이디와 패스워드를 입력해주세요");
+				System.out.print("아이디 : ");
 				String id = sc.nextLine();
+				System.out.print("패스워드 : ");
 				int pw = sc.nextInt();
 				int input = 9;
 				int money = 0;

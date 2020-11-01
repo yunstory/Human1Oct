@@ -40,10 +40,7 @@ public class test003 {
 			
 			
 			if(inputID==null) { // 아이디의 값이 null인지 아닌지 확인 .을 찍게되면 에러 발생
-				
-			}else if(inputID.equals("exit")) { //exit를 입력하면 빠져나가는 과정
-				
-				break;
+
 			}else if(inputID.equals("admin") && inputPW.equals("admin")) { //관리자 로그인
 			
 				boolean isAdminLogin = true;
@@ -141,7 +138,7 @@ public class test003 {
 //								System.out.println("account : " + id[i]);
 //							}
 //						}
-//						if(int i == listCount) {
+//						if( i == listCount) {
 //							System.out.println("없는 아이디 입니다");
 //						}
 						

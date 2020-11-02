@@ -215,8 +215,10 @@ public class test001 {
 			//게임실행
 			play();
 			
-			int i = 0; 
-			if(i==0) {
+			//한판더
+			System.out.println("한판 더? 1.y 2.n");
+			int s = Integer.parseInt(sc.nextLine());
+			if(s==0) {
 				break;
 			}
 		}

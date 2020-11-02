@@ -11,9 +11,11 @@ public class test001 {
 	public static int deckIndex = 52;
 	public static int user1Index = 0;
 	public static int user2Index = 0;
-	public static String[] cardShape = {"스페이드", "다이아", "하트", "클로버"};
+	public static boolean isUser1GEnd=false;
+	public static boolean isUser2GEnd=false;
+	public static String[] cardShape = {"♠", "◆", "♥", "♣"};
 	public static String[] cardNumber = {"A", "2","3","4","5","6","7","8","9","10","J","Q","k"};
-	
+
 	
 	
 	public static void newCard() {
@@ -21,6 +23,8 @@ public class test001 {
 		for(int i=0; i<deck.length; i++) {
 			deck[i] = i;
 		}
+		deckIndex = 52; user1Index =0; user2Index=0;
+		isUser1GEnd = isUser2GEnd = false; //초기화
 	}
 
 	public static void mixCard() {
@@ -42,19 +46,19 @@ public class test001 {
 	}
 	
 	public static void displayUser1Card() {
-		System.out.println("-------User1-------");
+		System.out.print("user1Card : ");
 		for(int i=0; i<user1Index; i++) {
-			System.out.println(cardShape[user1[i]/13] + " " + cardNumber[user1[i]%13]);
+			System.out.print(cardShape[user1[i]/13] + " " + cardNumber[user1[i]%13] + ",");
 		}
-		
-		
+		System.out.print("  현재점수 : " + user1Scoure() + "\n");
 	}
 	
 	public static void displayUser2Card() {
-		System.out.println("-------User2-------");
+		System.out.print("user2Card : ");
 		for(int i=0; i<user2Index; i++) {
-			System.out.println(cardShape[user2[i]/13] + " " + cardNumber[user2[i]%13]);
+			System.out.print(cardShape[user2[i]/13] + " " + cardNumber[user2[i]%13] + ",");
 		}
+		System.out.println("  현재점수 : " + user2Scoure());
 	}
 
 
@@ -80,30 +84,6 @@ public class test001 {
 	}
 	
 	
-	public static void user1Flag(){
-		System.out.println("카드를 받으시겠습니까? 0=n 1=y");
-		int c = sc.nextInt();
-		if(c==1) {
-			getUser1Card();
-
-		}else if(user1Scoure()>21) {
-			System.out.println("짐");
-			return;
-		}
-		
-	}
-	public static void user2Flag(){
-		System.out.println("카드를 받으시겠습니까? 0=n 1=y");
-		int c = sc.nextInt();
-		if(c==1) {
-			getUser2Card();
-		}else {
-			
-		}
-	}
-	
-	
-	
 	public static int user1Scoure() {
 		int returnValue = 0;
 		//A 1 or 11 / j q k 10 (11, 12, 13 -> 10) / 나머지는 그대로 
@@ -117,7 +97,7 @@ public class test001 {
 		
 		for(int i=0; i<user1Index; i++) {
 			if(user1[i]%13==0) {//A가 있으면
-				if(returnValue + 10 > 21) {//A를 11로 변경 후 21보다 크다면
+				if((returnValue + 10) > 21) {//A를 11로 변경 후 21보다 크다면
 					
 				}else {
 					returnValue += 10;
@@ -142,7 +122,7 @@ public class test001 {
 		
 		for(int i=0; i<user2Index; i++) {
 			if(user2[i]%13==0) {//A가 있으면
-				if(returnValue + 10 > 21) {//A를 11로 변경 후 21보다 크다면
+				if((returnValue + 10) > 21) {//A를 11로 변경 후 21보다 크다면
 					
 				}else {
 					returnValue += 10;
@@ -154,28 +134,95 @@ public class test001 {
 		return returnValue;
 	}
 	
-	
-	public static void main(String[] args) {
-		
-		newCard(); //카드 세팅
-		mixCard();//카드 섞기
-		//displayDeckCard();//카드 보기
-
-		user1Flag();
-		user2Flag();
-			
-
+	public static void displayGEnd() {
+		String result = "";
 		displayUser1Card();
 		displayUser2Card();
 		
-		user1Scoure();
-		user2Scoure();
+		if(user1Scoure() > 21) {
+			result = "user2의 승리";
+		}else if(user2Scoure() > 21) {
+			result = "user1의 승리";
+		}else if(user1Scoure() < user2Scoure()) {
+			result = "user2의 승리";
+		}else if(user1Scoure() == user2Scoure()) {
+			result = "무승부";
+		}else {
+			result = "user1의 승리";
+		}
+		System.out.println("\n게임 결과 " + result);
 		
-		System.out.println(user1Scoure());
-		System.out.println(user2Scoure());
+		
 		
 		
 	}
+	
+	public static void play() {
+		for(int i=0; i<10; i++) {
+			//user1 카드받기
+			System.out.println(i + 1 + "번째 card-------------");
+			if(!isUser1GEnd) { 
+				System.out.print("user1 카드 받? 1.y 2.n \t");
+				if(1==Integer.parseInt(sc.nextLine())) {//1 게임실행
+					getUser1Card();//카드 1장 취득
+					if(user1Scoure()>21) {//패배 종료
+						break;
+					};
+				}else {
+					isUser1GEnd = true;
+				}
+			}
+			//user2 카드받기
+			if(!isUser2GEnd) { 
+				System.out.print("user2 카드 받? 1.y 2.n \t");
+				if(1==Integer.parseInt(sc.nextLine())) {//1 게임실행
+					getUser2Card();//카드 1장 취득
+					if(user2Scoure()>21) {//패배 종료
+						break;
+					};
+				}else {
+					isUser2GEnd = true;
+				}
+			}
+			//종료
+			if(isUser1GEnd && isUser2GEnd) {
+				break;
+			}
+			displayUser1Card();
+			displayUser2Card();
+		}
+		displayGEnd();
+		
+//		//승패출력
+//		displayUser1Card();
+//		displayUser2Card();
+//		
+//		
+//		System.out.println(user1Scoure());
+//		System.out.println(user2Scoure());
 
+	}
+	
+	public static void main(String[] args) {
+
+		
+		while(true) {
+			
+			//카드세팅
+			newCard();
+			//카드섞기
+			mixCard();
+			//게임실행
+			play();
+			
+			int i = 0; 
+			if(i==0) {
+				break;
+			}
+		}
+		
+		
+		
+	}
 
 }

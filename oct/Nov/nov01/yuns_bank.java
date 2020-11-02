@@ -49,14 +49,14 @@ public class yuns_bank {
 						switch(adminSel) {
 						
 						case 1:
-							// 아이디와 비밀번호 그리고 내역을 저장할 공간 추가 
+							// 새로운 아이디/비밀번호/통장 저장할 공간 추가 
 							System.out.print("계정추가 ID : ");
 							id[addList] = sc.next();
 							System.out.print("계정추가 PW : ");
 							pw[addList] = sc.nextInt();
 							save[addList] = 0; // 통장 개설시  잔액은 0원으로 시작
 							
-							addList++; // 계정을 추가했으니 인덱스 ++
+							addList++; // 회원번호
 							
 							System.out.println("계정추가 완료\n");
 							

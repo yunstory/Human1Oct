@@ -8,9 +8,11 @@ class yunsWorld{
 		public String id[] = new String[100]; // 회원 아이디
 		public int[] pw = new int[100]; // 회원 비밀번호 
 		public int[] save = new int[100]; // 회원 통장
+		public int addList = 1; // 회원파일 / 계정추가를 위해 필요한 코드 관리자는 0번 인덱스 고정 고로 1부터 시작
+		
 		public String idID = null;
 		public int pwPW = 0;
-		public int addList = 1; // 계정추가를 위해 필요한 코드 관리자는 0번 인덱스 고정 고로 1부터 시작
+		
 		
 		
 		public yunsWorld(){
@@ -20,7 +22,7 @@ class yunsWorld{
 		public void admin() {
 			id[0] = "admin"; //관리자아이디
 			pw[0] = 1234; //관리자 비밀번호 
-			save[0] = 999; //관리자 통장
+			save[0] = 9999999; //관리자 통장
 		}
 		
 		public void yunsBank() {
@@ -65,14 +67,14 @@ class yunsWorld{
 				switch(adminSel) {
 				
 				case 1:
-					// 아이디와 비밀번호 그리고 내역을 저장할 공간 추가 
+					// 회원 아이디/비밀번호/통장 추가해주는 단계
 					System.out.print("계정추가 ID : ");
 					id[addList] = sc.next();
 					System.out.print("계정추가 PW : ");
 					pw[addList] = sc.nextInt();
 					save[addList] = 0; // 통장 개설시  잔액은 0원으로 시작
 					
-					addList++; // 계정을 추가했으니 인덱스 ++
+					addList++; // 계정을 추가했으니 인덱스 ++ 회원파일  추가 
 					
 					System.out.println("계정추가 완료\n");
 					
@@ -97,7 +99,8 @@ class yunsWorld{
 							System.out.println("삭제하면 되돌릴수 없습니다. 1.삭제 2.종료");
 							int del = sc.nextInt();
 							if(del==1) {
-								//아이디와 비밀번호 그리고 내역을 지우고 배열을 한칸씩 땡겨와 저장하는 과정
+								//아이디와 비밀번호 그리고 통장을 삭제하고 저장공간 낭비를 한칸씩 땡겨온다. 
+								//(줄서서 급식을 받아 먹는 경우와 유사. 앞 사람이 가면 그 뒤를 이어 급식 받기)
 								id[i] = id[ i + 1 ];
 								pw[i] = pw[ i + 1 ];
 								save[i] = save[ i + 1];
@@ -109,7 +112,7 @@ class yunsWorld{
 							}
 						}
 						
-						addList--; // 계정을 삭제했으니 인덱스 --
+						addList--; // 계정을 삭제했으니 인덱스 -- 회원파일 지우기 
 					}						
 					
 					break;
@@ -120,7 +123,7 @@ class yunsWorld{
 						System.out.println("--------------------------------------------");
 					}
 					
-					if(addList<0) { // 인덱스 0은 관리자 계정이므로 0보다 작으면 아래
+					if(addList<0) { //  0번쨰 위치는 관리자 계정이므로 0보다 작으면 아래가 출력.
 						System.out.println("데이터가 없습니다\n");
 					}
 					
@@ -144,7 +147,7 @@ class yunsWorld{
 				case 5:
 					System.out.println("정상 로그아웃 완료\n");
 					adminArea = false; // 관리자활동 종료
-					idID = null; // 관리자 아이디 정상로그아웃 (기록지우기(?))
+					idID = null; // 관리자 아이디 정상로그아웃 (기록지우기(?)) 다른사람이 악용하지 못하게 로그아웃은 필수!
 					break;
 					
 				}

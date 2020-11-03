@@ -14,7 +14,7 @@ public class test001 {
 	public static boolean isUser1GEnd=false;
 	public static boolean isUser2GEnd=false;
 	public static String[] cardShape = {"♠", "◆", "♥", "♣"};
-	public static String[] cardNumber = {"A", "2","3","4","5","6","7","8","9","10","J","Q","k"};
+	public static String[] cardNumber = {"A", "2","3","4","5","6","7","8","9","10","J","Q","K"};
 
 	
 	
@@ -23,8 +23,9 @@ public class test001 {
 		for(int i=0; i<deck.length; i++) {
 			deck[i] = i;
 		}
+		//초기화 재세팅 과정
 		deckIndex = 52; user1Index =0; user2Index=0;
-		isUser1GEnd = isUser2GEnd = false; //초기화
+		isUser1GEnd = isUser2GEnd = false;
 	}
 
 	public static void mixCard() {
@@ -50,7 +51,7 @@ public class test001 {
 		for(int i=0; i<user1Index; i++) {
 			System.out.print(cardShape[user1[i]/13] + " " + cardNumber[user1[i]%13] + ",");
 		}
-		System.out.print("  현재점수 : " + user1Scoure() + "\n");
+		System.out.println("  현재점수 : " + user1Scoure());
 	}
 	
 	public static void displayUser2Card() {
@@ -160,7 +161,7 @@ public class test001 {
 	public static void play() {
 		for(int i=0; i<10; i++) {
 			//user1 카드받기
-			System.out.println(i + 1 + "번째 card-------------");
+			System.out.println(i + 1 + "번째 card-----------------------");
 			if(!isUser1GEnd) { 
 				System.out.print("user1 카드 받? 1.y 2.n \t");
 				if(1==Integer.parseInt(sc.nextLine())) {//1 게임실행
@@ -216,7 +217,7 @@ public class test001 {
 			play();
 			
 			//한판더
-			System.out.println("한판 더? 1.y 2.n");
+			System.out.println("\n한판 더? 1.y 0.n");
 			int s = Integer.parseInt(sc.nextLine());
 			if(s==0) {
 				break;

@@ -40,6 +40,7 @@ class RectanglePillar extends Rectangle{
 		super.height = height; // 부모에서 찾음
 		
 		this.pillar = pillar; //자기 자신에서 찾음 
+		
 		/*
 		 super=>부모에 접근 this=>자기자신에 접근 
 		 super는 생성자 맨 상단에 기술해야 함

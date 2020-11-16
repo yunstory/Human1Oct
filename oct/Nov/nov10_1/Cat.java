@@ -8,7 +8,7 @@ public class Cat { //문제5번 Dog와 동일한 필드를 가진 Cat
 	
 	public Cat (){}
 
-	public Cat(int catAge, String catName, Boolean vaccination) {
+	public Cat(String catName, int catAge, Boolean vaccination) {
 		super();
 		this.catAge = catAge;
 		this.catName = catName;

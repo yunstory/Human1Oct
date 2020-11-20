@@ -1,8 +1,12 @@
 package nov13;
 
 
-class Snake implements WHI{
+public class Snake implements WHI, Sound{
 
+	
+	public void sound() {
+		System.out.println("Ω¨¿Õ..?");
+	}
 
 	public void run() {
 		System.out.println("cant run");

@@ -1,7 +1,11 @@
 package nov13;
 
-class Bird implements WHI{
+class Bird implements WHI, Sound{
 
+	public void sound() {
+		System.out.println("Â±Â±Â°¾×");
+	}
+	
 	public void run() {
 		System.out.println("cant run");
 	}

@@ -2,7 +2,7 @@ package nov13_1;
 
 
 class Product {
-	//제품 종료로는 tv와 computer가 있다. 각 5% 10% 할인 행사 중 
+	//제품 종류로는 tv와 computer가 있다. 각 5% 10% 할인 행사 중 
 	//tv 속성으로는 인치, computer 속성으로는 ram을 가지고 있다. 
 	//최종가격을 리턴하는 getPrice메소드가 있다.
 

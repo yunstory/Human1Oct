@@ -9,3 +9,4 @@ public interface WHI {
 	public void leg();
 
 }
+

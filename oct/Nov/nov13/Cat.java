@@ -1,8 +1,12 @@
 package nov13;
 
 
-class Cat implements WHI{
+public class Cat implements WHI, Sound{
 
+	public void sound() {
+		System.out.println("³Ä¿Ë");
+	}
+	
 	public void run() {
 		System.out.println("can run");
 	}
@@ -22,4 +26,5 @@ class Cat implements WHI{
 	public void leg() {
 		System.out.println("has 4 legs");
 	}
+
 }
